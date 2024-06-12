@@ -900,3 +900,65 @@
     width: 90vw;
   }
 }
+
+/* During the Ajax request, a loader should be present */
+.loader_popular,
+.loader_latest,
+.loader {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #C271FF;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+}
+
+.loader_popular,
+.loader_latest {
+  margin-bottom: 6rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Popular tutorials */
+.carousel-inner-popular,
+.carousel-inner-latest {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-item-popular {
+  display: flex;
+  flex: 0 0 100%;
+  justify-content: center;
+}
+
+.card-popular {
+  flex: 0 0 25%;
+  box-sizing: border-box;
+  padding: 1rem;
+  max-width: 25%;
+}
+
+@media screen and (max-width: 767px) {
+  .card-popular {
+    flex: 0 0 50%; /* 2 cards at a time */
+    box-sizing: border-box;
+    padding: 1rem;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .card-popular {
+    flex: 0 0 100%; /* 1 cards at a time */
+    box-sizing: border-box;
+    padding: 1rem;
+    max-width: 100%;
+  }
+}

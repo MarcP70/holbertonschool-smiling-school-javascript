@@ -227,10 +227,73 @@
             class="carousel slide"
             data-ride="carousel"
           >
-            <div class="carousel-inner data-quotes">
-              <!-- During the Ajax request, a loader should be present -->
-              <div class="loader"></div>
-              <!-- dynamic loading quotes -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row mx-auto align-items-center">
+                  <div class="col-12 col-sm-2 col-lg-2 offset-lg-1 text-center">
+                    <img
+                      src="images/profile_5.jpg"
+                      class="d-block align-self-center"
+                      alt="Carousel Pic 1"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-7 offset-sm-2 col-lg-9 offset-lg-0">
+                    <div class="quote-text">
+                      <p class="text-white">
+                        « Those tutorials are concise and go straight to the
+                        point. I can’t think of a better place to learn smiling.
+                        And it’s so fun!
+                      </p>
+                      <h4 class="text-white font-weight-bold">Person Name</h4>
+                      <span class="text-white">weather presenter</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row mx-auto align-items-center">
+                  <div class="col-12 col-sm-2 col-lg-2 offset-lg-1 text-center">
+                    <img
+                      src="images/profile_5.jpg"
+                      class="d-block align-self-center"
+                      alt="Carousel Pic 1"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-7 offset-sm-2 col-lg-9 offset-lg-0">
+                    <div class="quote-text">
+                      <p class="text-white">
+                        « Those tutorials are concise and go straight to the
+                        point. I can’t think of a better place to learn smiling.
+                        And it’s so fun!
+                      </p>
+                      <h4 class="text-white font-weight-bold">Person Name</h4>
+                      <span class="text-white">weather presenter</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row mx-auto align-items-center">
+                  <div class="col-12 col-sm-2 col-lg-2 offset-lg-1 text-center">
+                    <img
+                      src="images/profile_5.jpg"
+                      class="d-block align-self-center"
+                      alt="Carousel Pic 1"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-7 offset-sm-2 col-lg-9 offset-lg-0">
+                    <div class="quote-text">
+                      <p class="text-white">
+                        « Those tutorials are concise and go straight to the
+                        point. I can’t think of a better place to learn smiling.
+                        And it’s so fun!
+                      </p>
+                      <h4 class="text-white font-weight-bold">Person Name</h4>
+                      <span class="text-white">weather presenter</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <a
               class="carousel-control-prev arrow-left"
@@ -399,55 +462,4 @@
       </div>
     </footer>
   </body>
-  <script type="application/javascript">
-    function addQuoteRow(data, isActive) {
-      $('.data-quotes').append(`
-        <div class="carousel-item ${isActive ? 'active' : ''}">
-          <div class="row mx-auto align-items-center">
-            <div class="col-12 col-sm-2 col-lg-2 offset-lg-1 text-center">
-              <img
-                src="${data.pic_url}"
-                class="d-block align-self-center"
-                alt="Carousel Pic ${data.id}"
-              />
-            </div>
-            <div class="col-12 col-sm-7 offset-sm-2 col-lg-9 offset-lg-0">
-              <div class="quote-text">
-                <p class="text-white">
-                  ${data.text}
-                </p>
-                <h4 class="text-white font-weight-bold">${data.name}</h4>
-                <span class="text-white">${data.title}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      `);
-    }
-
-    function listQuotes() {
-      // Affiche le loader avant de démarrer la requête AJAX
-      $('.loader').show();
-      $.ajax({
-        url: 'https://smileschool-api.hbtn.info/quotes',
-        method: 'GET',
-        success: function (response) {
-          response.forEach(function (quote, index) {
-            addQuoteRow(quote, index === 0); // true si index est le premier élément (index 0)
-          });
-          // Cache le loader une fois les données chargées
-          $('.loader').hide();
-        },
-        error: function () {
-          alert('Server Error');
-        }
-      });
-    }
-
-    $(document).ready(function () {
-      $('.loader').hide();
-      listQuotes();
-    });
-
-  </script>
 </html>
